@@ -1,0 +1,14 @@
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\bin\Debug\net8.0\Exe06A.exe
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\bin\Debug\net8.0\Exe06A.deps.json
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\bin\Debug\net8.0\Exe06A.runtimeconfig.json
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\bin\Debug\net8.0\Exe06A.dll
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\bin\Debug\net8.0\Exe06A.pdb
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\obj\Debug\net8.0\Exe06A.GeneratedMSBuildEditorConfig.editorconfig
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\obj\Debug\net8.0\Exe06A.AssemblyInfoInputs.cache
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\obj\Debug\net8.0\Exe06A.AssemblyInfo.cs
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\obj\Debug\net8.0\Exe06A.csproj.CoreCompileInputs.cache
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\obj\Debug\net8.0\Exe06A.dll
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\obj\Debug\net8.0\refint\Exe06A.dll
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\obj\Debug\net8.0\Exe06A.pdb
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\obj\Debug\net8.0\Exe06A.genruntimeconfig.cache
+C:\Diogo Deconto\Quinta\ListaExercicio\Exe06A\obj\Debug\net8.0\ref\Exe06A.dll
