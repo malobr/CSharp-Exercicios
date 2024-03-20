@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Diogo Deconto\\Quinta\\ListaExercicio\\Exe06A\\Exe06A.csproj": {}
+    "C:\\Users\\marce\\OneDrive\\Desktop\\C#Faculdade\\ListaExercicio\\Exe06A\\Exe06A.csproj": {}
   },
   "projects": {
-    "C:\\Diogo Deconto\\Quinta\\ListaExercicio\\Exe06A\\Exe06A.csproj": {
+    "C:\\Users\\marce\\OneDrive\\Desktop\\C#Faculdade\\ListaExercicio\\Exe06A\\Exe06A.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Diogo Deconto\\Quinta\\ListaExercicio\\Exe06A\\Exe06A.csproj",
+        "projectUniqueName": "C:\\Users\\marce\\OneDrive\\Desktop\\C#Faculdade\\ListaExercicio\\Exe06A\\Exe06A.csproj",
         "projectName": "Exe06A",
-        "projectPath": "C:\\Diogo Deconto\\Quinta\\ListaExercicio\\Exe06A\\Exe06A.csproj",
-        "packagesPath": "C:\\Users\\autologon\\.nuget\\packages\\",
-        "outputPath": "C:\\Diogo Deconto\\Quinta\\ListaExercicio\\Exe06A\\obj\\",
+        "projectPath": "C:\\Users\\marce\\OneDrive\\Desktop\\C#Faculdade\\ListaExercicio\\Exe06A\\Exe06A.csproj",
+        "packagesPath": "C:\\Users\\marce\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marce\\OneDrive\\Desktop\\C#Faculdade\\ListaExercicio\\Exe06A\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\autologon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\marce\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -38,6 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -59,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
