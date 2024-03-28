@@ -1,0 +1,13 @@
+### Raiz da aplicacao
+GET http://localhost:5229
+
+
+### Listagem de produtos
+GET http://localhost:5229/produto/listar
+
+### Listagem de produtos
+GET http://localhost:5229/produto/buscar/Celular
+
+
+### Cadastro de produtos
+POST http://localhost:5229/produto/cadastrar
