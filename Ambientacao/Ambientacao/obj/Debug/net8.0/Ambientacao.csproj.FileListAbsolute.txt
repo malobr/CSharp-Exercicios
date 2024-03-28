@@ -1,0 +1,14 @@
+C:\Diogo Deconto\Quinta\Ambientacao\bin\Debug\net8.0\Ambientacao.exe
+C:\Diogo Deconto\Quinta\Ambientacao\bin\Debug\net8.0\Ambientacao.deps.json
+C:\Diogo Deconto\Quinta\Ambientacao\bin\Debug\net8.0\Ambientacao.runtimeconfig.json
+C:\Diogo Deconto\Quinta\Ambientacao\bin\Debug\net8.0\Ambientacao.dll
+C:\Diogo Deconto\Quinta\Ambientacao\bin\Debug\net8.0\Ambientacao.pdb
+C:\Diogo Deconto\Quinta\Ambientacao\obj\Debug\net8.0\Ambientacao.GeneratedMSBuildEditorConfig.editorconfig
+C:\Diogo Deconto\Quinta\Ambientacao\obj\Debug\net8.0\Ambientacao.AssemblyInfoInputs.cache
+C:\Diogo Deconto\Quinta\Ambientacao\obj\Debug\net8.0\Ambientacao.AssemblyInfo.cs
+C:\Diogo Deconto\Quinta\Ambientacao\obj\Debug\net8.0\Ambientacao.csproj.CoreCompileInputs.cache
+C:\Diogo Deconto\Quinta\Ambientacao\obj\Debug\net8.0\Ambientacao.dll
+C:\Diogo Deconto\Quinta\Ambientacao\obj\Debug\net8.0\refint\Ambientacao.dll
+C:\Diogo Deconto\Quinta\Ambientacao\obj\Debug\net8.0\Ambientacao.pdb
+C:\Diogo Deconto\Quinta\Ambientacao\obj\Debug\net8.0\Ambientacao.genruntimeconfig.cache
+C:\Diogo Deconto\Quinta\Ambientacao\obj\Debug\net8.0\ref\Ambientacao.dll
