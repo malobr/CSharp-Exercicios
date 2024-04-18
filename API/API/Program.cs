@@ -1,49 +1,29 @@
-/*using System.Collections.Generic;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Hosting;*/
-
-//using API.Models;
-
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
 
-var builder = WebApplication.CreateBuilder(args);   //  (cd ./API/) ir para determinada pasta  || crtl c para a aplicacao
+var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-/*
-Produto produto = new Produto();
-produto.setNome("Bolacha");
-Console.WriteLine(produto.getNome());
-*/
-/*
-Produto produto = new Produto();
-produto.Nome = "Bolacha";
-Console.WriteLine(produto.Nome);
-*/
-
-new Produto();
-
-
-
-List<Produto> produtos = [
-
-     new Produto("Celular", "IOS", 1700),
-     new Produto("Bolacha", "Trakinas", 2),
-     new Produto("Charuto", "Cohiba", 500),
-     new Produto("Computador", "Dell", 10.000),
+// List<Produto> produtos = new List<Produto>();
+List<Produto> produtos =
+[
+    new Produto("Celular", "IOS", 5000),
+    new Produto("Celular", "Android", 4000),
+    new Produto("Televisão", "LG", 2300.5),
+    new Produto("Placa de Vídeo", "NVIDIA", 2500),
 ];
 
+//Funcionalidades da aplicação - EndPoints
 
+// GET: http://localhost:5124/
+app.MapGet("/", () => "API de Produtos");
 
-//GET: http://localhost:5229/api
-app.MapGet("/", () => "API de produtos");
+// GET: http://localhost:5124/produto/listar
+app.MapGet("/produto/listar", () =>
+    produtos);
 
-//GET: http://localhost:5229/produto/listar
-app.MapGet("/produto/listar", () => produtos);
-
-
-//GET: http://localhost:5229/produto/buscar/nomedoproduto
-app.MapGet("/produto/buscar/{nome}", ([FromRoute] string nome) => 
+// GET: http://localhost:5124/produto/buscar/nomedoproduto
+app.MapGet("/produto/buscar/{nome}", ([FromRoute] string nome) =>
     {
         for (int i = 0; i < produtos.Count; i++)
         {
@@ -51,26 +31,46 @@ app.MapGet("/produto/buscar/{nome}", ([FromRoute] string nome) =>
             {
                 //retornar o produto encontrado
                 return Results.Ok(produtos[i]);
-            } /*else{
-                return null;
-            }*/
+            }
         }
-        return Results.NotFound("Produto nao encontrado");
+        return Results.NotFound("Produto não encontrado!");
     }
 );
 
+// POST: http://localhost:5124/produto/cadastrar
+app.MapPost("/produto/cadastrar", ([FromBody] Produto produto) =>
+{
+    //Adicionar o objeto dentro da lista
+    produtos.Add(produto);
+    return Results.Created("", produto);
+});
 
-//POST: http://localhost:5229/produto/cadastrar
-app.MapPost("/produto/cadastrar//", () => "Cadastro de produtos");
+// DELETE: http://localhost:5124/produto/deletar/id
+app.MapDelete("/produto/deletar/{id}", ([FromRoute] string id) =>
+{
+    Produto? produto = produtos.FirstOrDefault(x => x.Id == id);
+    if (produto is null)
+    {
+        return Results.NotFound("Produto não encontrado!");
+    }
+    produtos.Remove(produto);
+    return Results.Ok("Produto deletado!");
 
+});
 
-//EXERCICIO: cadastrar um produto a) pala url b) pelo corpo
-//remocao do produto
-//alteracao do produto
+// PUT: http://localhost:5124/produto/alterar/id
+app.MapPut("/produto/alterar/{id}", ([FromRoute] string id,
+    [FromBody] Produto produtoAlterado) =>
+{
+    Produto? produto = produtos.FirstOrDefault(x => x.Id == id);
+    if (produto is null)
+    {
+        return Results.NotFound("Produto não encontrado!");
+    }
+    produto.Nome = produtoAlterado.Nome;
+    produto.Descricao = produtoAlterado.Descricao;
+    produto.Valor = produtoAlterado.Valor;
+    return Results.Ok("Produto alterado!");
 
+});
 app.Run();
-
-
-
-
-record Produto(string nome, string descricao, int V);

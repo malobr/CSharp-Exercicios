@@ -1,46 +1,28 @@
-﻿namespace API.Models;
+﻿﻿
+namespace API.Models;
 
 public class Produto
 {
-
-
-    public Produto(string nome, string descricao,  double valor)
+    //Construtor
+    public Produto()
     {
+        Id = Guid.NewGuid().ToString();
+        CriadoEm = DateTime.Now;
+    }
+
+    public Produto(string nome, string descricao, double valor)
+    {
+        Id = Guid.NewGuid().ToString();
         Nome = nome;
         Descricao = descricao;
         Valor = valor;
+        CriadoEm = DateTime.Now;
     }
 
-
-
-
-
-
-    //Atributos ou propriedades = Caracteristicas de um objeto //EM C# o ATributo e publico
-    public string? Nome { get; set; }  //o ? serve para informarmos que sabemos que a string e null
+    //Atributos ou propriedades = Características de um objeto
+    public string Id { get; set; }
+    public string? Nome { get; set; }
     public string? Descricao { get; set; }
     public double Valor { get; set; }
-
-
-
-
-
-
-
-   /* private String nome;
-    private String descricao;
-
-
-    public void setNome(String nome)
-    {
-        this.nome = nome;
-    }
-    public String getNome()
-    {
-        return this.nome;
-    }*/
+    public DateTime CriadoEm { get; set; }
 }
-
-
-
-
