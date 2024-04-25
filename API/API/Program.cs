@@ -1,68 +1,87 @@
+using System.ComponentModel.DataAnnotations;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Registrar o serviço de banco de dados
+builder.Services.AddDbContext<AppDataContext>();
+
 var app = builder.Build();
 
-// List<Produto> produtos = new List<Produto>();
-List<Produto> produtos =
-[
-    new Produto("Celular", "IOS", 5000),
-    new Produto("Celular", "Android", 4000),
-    new Produto("Televisão", "LG", 2300.5),
-    new Produto("Placa de Vídeo", "NVIDIA", 2500),
-];
 
 //Funcionalidades da aplicação - EndPoints
 
-// GET: http://localhost:5124/
+// GET: http://localhost:5229/
 app.MapGet("/", () => "API de Produtos");
 
-// GET: http://localhost:5124/produto/listar
-app.MapGet("/produto/listar", () =>
-    produtos);
-
-// GET: http://localhost:5124/produto/buscar/nomedoproduto
-app.MapGet("/produto/buscar/{nome}", ([FromRoute] string nome) =>
-    {
-        for (int i = 0; i < produtos.Count; i++)
-        {
-            if (produtos[i].Nome == nome)
-            {
-                //retornar o produto encontrado
-                return Results.Ok(produtos[i]);
-            }
-        }
-        return Results.NotFound("Produto não encontrado!");
-    }
-);
-
-// POST: http://localhost:5124/produto/cadastrar
-app.MapPost("/produto/cadastrar", ([FromBody] Produto produto) =>
+// GET: http://localhost:5229/produto/listar
+app.MapGet("/produto/listar", ([FromServices] AppDataContext ctx) =>
 {
-    //Adicionar o objeto dentro da lista
-    produtos.Add(produto);
-    return Results.Created("", produto);
+    if (ctx.Produtos.Any())
+    {
+        return Results.Ok(ctx.Produtos.ToList());
+    }
+    return Results.NotFound("Não existem produtos na tabela");
 });
 
-// DELETE: http://localhost:5124/produto/deletar/id
-app.MapDelete("/produto/deletar/{id}", ([FromRoute] string id) =>
+// GET: http://localhost:5229/produto/buscar/iddoproduto
+app.MapGet("/produto/buscar/{id}", ([FromRoute] string id, [FromServices] AppDataContext ctx) =>
 {
-    Produto? produto = produtos.FirstOrDefault(x => x.Id == id);
+    Produto? produto = ctx.Produtos.Find(id); 
+
+    if(produto is null){
+        return Results.NotFound("Produto não encontrado!");
+    }
+    return Results.Ok(produto);
+
+    //return (produto == null) ? Results.NotFound("Produto não encontrado!") : Results.Ok(produto);
+    //Exemplo de if ternario
+
+});
+
+// POST: http://localhost:5229/produto/cadastrar
+app.MapPost("/produto/cadastrar", ([FromBody] Produto produto,
+    [FromServices] AppDataContext ctx) =>
+{
+    List<ValidationResult> erros = new List<ValidationResult>();
+    if(!Validator.TryValidateObject(produto, new ValidationContext(produto), erros, true)){
+        return Results.BadRequest(erros);
+    }
+
+
+    Produto? produtoEncontrado = ctx.Produtos.FirstOrDefault(x => x.Nome == produto.Nome);
+    if (produtoEncontrado is null){
+
+    //Adicionar o objeto dentro da tabela no banco de dados
+    ctx.Produtos.Add(produto);
+    ctx.SaveChanges();
+    return Results.Created("", produto);
+    }
+    return Results.BadRequest("Produto já cadastrado!");
+});
+
+
+// DELETE: http://localhost:5229/produto/deletar/id
+app.MapDelete("/produto/deletar/{id}", ([FromRoute] string id, [FromServices] AppDataContext ctx) =>
+{
+    Produto? produto = ctx.Produtos.FirstOrDefault(x => x.Id == id);
     if (produto is null)
     {
         return Results.NotFound("Produto não encontrado!");
     }
-    produtos.Remove(produto);
+    ctx.Produtos.Remove(produto);
+    ctx.SaveChanges();
     return Results.Ok("Produto deletado!");
 
 });
 
-// PUT: http://localhost:5124/produto/alterar/id
+// PUT: http://localhost:5229/produto/alterar/id
 app.MapPut("/produto/alterar/{id}", ([FromRoute] string id,
-    [FromBody] Produto produtoAlterado) =>
+    [FromBody] Produto produtoAlterado, [FromServices] AppDataContext ctx) =>
 {
-    Produto? produto = produtos.FirstOrDefault(x => x.Id == id);
+    Produto? produto = ctx.Produtos.FirstOrDefault(x => x.Id == id);
+    //Produto? produto = ctx.Produtos.Find(id);
     if (produto is null)
     {
         return Results.NotFound("Produto não encontrado!");
@@ -70,6 +89,8 @@ app.MapPut("/produto/alterar/{id}", ([FromRoute] string id,
     produto.Nome = produtoAlterado.Nome;
     produto.Descricao = produtoAlterado.Descricao;
     produto.Valor = produtoAlterado.Valor;
+    ctx.Produtos.Update(produto);
+    ctx.SaveChanges();
     return Results.Ok("Produto alterado!");
 
 });

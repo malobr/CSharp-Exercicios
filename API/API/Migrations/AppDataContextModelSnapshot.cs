@@ -26,10 +26,15 @@ namespace API.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Descricao")
+                        .HasMaxLength(10)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("INTEGER");
 
                     b.Property<double>("Valor")
                         .HasColumnType("REAL");

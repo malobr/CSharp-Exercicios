@@ -8,11 +8,12 @@ public class AppDataContext : DbContext
 {
     //Respresentacao das classes que vao virar tabelas no Banco de Dados
     public DbSet<Produto> Produtos { get; set; }//obrigatoriamente tem que ser public...
+    //public DbSet<Categorias> Categorias { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         //Configuracao da conexao com o Banco de Dados
-        optionsBuilder.UseSqlite("Data Source=app.db");
+        optionsBuilder.UseSqlite("Data Source=app.db");//A parte verde e a string de conecao...
 
     }
 
