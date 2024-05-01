@@ -13,7 +13,7 @@ public class AppDataContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         //Configuracao da conexao com o Banco de Dados
-        optionsBuilder.UseSqlite("Data Source=app.db");//A parte verde e a string de conecao...
+        optionsBuilder.UseSqlite("Data Source=app.db");//A parte verde ---(Data Source=app.db)--- e a string de conecao...
 
     }
 

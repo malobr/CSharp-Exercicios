@@ -24,10 +24,10 @@ DELETE http://localhost:5002/produto/deletar/9cd11376-9773-4ad4-a475-3de21e85db7
 
 ### Alterar produto
 POST http://localhost:5229/produto/alterar/354a28a5-1f48-4bc4-88f9-8793afcd5eaa
-Content-Type: application/json
+Content-Type: application/json  
 
 {
     "nome" : "Cafe",
     "descricao" : "Vicio",
     "valor" : 15
-}
+}// sempre deixar um espaco entre o content-type e o json....

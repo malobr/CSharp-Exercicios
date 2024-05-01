@@ -94,4 +94,4 @@ app.MapPut("/produto/alterar/{id}", ([FromRoute] string id,
     return Results.Ok("Produto alterado!");
 
 });
-app.Run();
+app.Run();// sempre deixar por ultimo...
