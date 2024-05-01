@@ -47,3 +47,11 @@ namespace API.Migrations
         }
     }
 }
+
+/*
+dotnet tool install --global dotnet ef  //instalar globalmente
+dotnet ef migrations add VersaoInicial... // adiciona uma migracao ao prpjeto
+dotnet ef database update // atualiza a migracao
+dotnet ef migrations remove // remove a migracao
+*/
+

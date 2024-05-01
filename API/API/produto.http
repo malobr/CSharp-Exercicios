@@ -12,14 +12,14 @@ POST http://localhost:5229/produto/cadastrar
 Content-Type: application/json
 
 {
-    "nome" : "farinha",
+    "nome" : "aaaa",
     "descricao" : "Alimento",
     "valor" : 15
 }
 
 
 ### Remoção de Produtos
-DELETE http://localhost:5229/produto/deletar/d7a8bb32-1b2c-4966-accf-94388808ead0
+DELETE http://localhost:5002/produto/deletar/9cd11376-9773-4ad4-a475-3de21e85db7c
 
 
 ### Alterar produto
